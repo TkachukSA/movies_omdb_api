@@ -1,0 +1,26 @@
+import React, {ChangeEvent} from 'react';
+
+
+type InputFormType = {
+    value: string
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void
+    searchFilm: ()=>void
+}
+
+
+export const InputForm: React.FC<InputFormType> = ({value, onChange, searchFilm}) => {
+
+    return (
+        <div>
+            <input value={value} onChange={onChange} onKeyPress={(e)=>{if (e.charCode === 13) {
+                searchFilm();
+            }}} />
+            <button onClick={searchFilm}>Search</button>
+
+
+        </div>
+
+    );
+}
+
+
