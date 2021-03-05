@@ -1,9 +1,13 @@
-import { combineReducers, createStore } from 'redux';
-import { currencyReducer } from './currencyReducer';
+import {applyMiddleware, combineReducers, createStore } from 'redux';
+import thunkMiddleware from 'redux-thunk'
+import {moviesReducer} from "./appReducer";
 
 const reducers = combineReducers({
-  currency: currencyReducer,
+    movies:moviesReducer
 });
-export type IGlobalState = ReturnType<typeof reducers>;
+export type AppRootStateType = ReturnType<typeof reducers>;
 
-export const store = createStore(reducers);
+export const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+
+// @ts-ignore
+window.store = store;

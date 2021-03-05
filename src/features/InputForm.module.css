@@ -1,26 +1,22 @@
-import React, {ChangeEvent} from 'react';
+.header{
+    height: 100px;
+    background-color: #38383c;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
 
-
-type InputFormType = {
-    value: string
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void
-    searchFilm: ()=>void
+}
+.title{
+    padding-left: 20px;
 }
 
-
-export const InputForm: React.FC<InputFormType> = ({value, onChange, searchFilm}) => {
-
-    return (
-        <div>
-            <input value={value} onChange={onChange} onKeyPress={(e)=>{if (e.charCode === 13) {
-                searchFilm();
-            }}} />
-            <button onClick={searchFilm}>Search</button>
-
-
-        </div>
-
-    );
+.nav{
+    /*//width: 300px;*/
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
 }
-
-
+.nav button{
+    margin-right: 60px;
+}
